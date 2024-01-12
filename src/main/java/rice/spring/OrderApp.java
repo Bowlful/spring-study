@@ -3,15 +3,15 @@ package rice.spring;
 import rice.spring.member.Grade;
 import rice.spring.member.Member;
 import rice.spring.member.MemberService;
-import rice.spring.member.MemberServiceImpl;
 import rice.spring.order.Order;
 import rice.spring.order.OrderService;
-import rice.spring.order.OrderServiceImpl;
 
 public class OrderApp {
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
