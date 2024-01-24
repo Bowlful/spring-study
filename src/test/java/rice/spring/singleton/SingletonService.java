@@ -1,4 +1,4 @@
-package rice.spring.singletion;
+package rice.spring.singleton;
 
 public class SingletonService {
 

@@ -1,4 +1,4 @@
-package rice.spring.singletion;
+package rice.spring.singleton;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
