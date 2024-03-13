@@ -1,0 +1,32 @@
+package rice.spring.web;
+
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import rice.spring.common.MyLogger;
+
+@Controller
+public class LogDemoController {
+
+    private final LogDemoService logDemoService;
+    private final MyLogger myLogger;
+
+    private LogDemoController(LogDemoService logDemoService, MyLogger myLogger) {
+        this.logDemoService = logDemoService;
+        this.myLogger = myLogger;
+    }
+
+    @RequestMapping("log-demo")
+    @ResponseBody
+    public String logDemo(HttpServletRequest request) {
+        String requestURL = request.getRequestURL().toString();
+        System.out.println("myLogger : " + myLogger.getClass());
+        myLogger.setRequestURL(requestURL);
+
+        myLogger.log("Controller test");
+        logDemoService.logic("testId");
+        return "OK";
+    }
+}

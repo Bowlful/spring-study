@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 import rice.spring.member.Grade;
 import rice.spring.member.Member;
 
-@Component
 public class RateDiscountPolicy implements DiscountPolicy {
 
     private int discountPolicy = 10;
